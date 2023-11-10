@@ -1,0 +1,30 @@
+*, *::before, *::after, body {
+	box-sizing: border-box;
+  font-family: 'Rubik';
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Rubik-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 500;
+  src: url('./assets/fonts/Rubik-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 600;
+  src: url('./assets/fonts/Rubik-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/Rubik-Bold.ttf') format('truetype');
+}

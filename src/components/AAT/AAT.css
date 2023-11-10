@@ -1,0 +1,28 @@
+.AAT__pregunta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.AAT__contenedor_radio {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.AAT__contenedor_radio input[type="radio"] {
+  width: 1rem;
+  background-color: red;
+  height: 1rem;
+}
+
+.AAT__contenedor_manos {
+  display: grid;
+  grid-template: repeat(4, 1fr);
+}
+
+.AAT__imagen_mano {
+  background-color: white;
+  padding: .5rem;
+}

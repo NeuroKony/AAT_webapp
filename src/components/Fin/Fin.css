@@ -1,0 +1,21 @@
+.Fin {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  line-height: 1.5;
+  color: var(--color-blanco);
+  font-size: 1.25rem;
+}
+
+.Fin__error {
+  font-size: .85rem;
+}
+
+.Fin__monito {
+  width: 5rem;
+  align-self: center;
+}

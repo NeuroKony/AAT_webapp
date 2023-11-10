@@ -1,0 +1,14 @@
+.SecuenciaExposicion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex: 1;
+  gap: 1rem;
+}
+
+.SecuenciaExposicion__imagen {
+  border-radius: 1rem;
+  max-width: 50vw;
+}

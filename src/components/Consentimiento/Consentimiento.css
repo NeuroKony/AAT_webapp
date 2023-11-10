@@ -1,0 +1,64 @@
+.Consentimiento {
+  display: flex;
+  background: var(--color-blanco);
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.Consentimiento h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 2rem 0 .5rem 0;
+  text-align: center;
+}
+
+.Consentimiento__contenedor {
+  background: var(--color-blanco);
+  padding: 0 2rem 1.5rem 2rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  overflow: scroll;
+  scrollbar-color: var(--color-principal);
+}
+
+.Consentimiento__contenedor::-webkit-scrollbar {
+  width: .5rem;
+  background-color: var(--color-fondo);
+}
+
+.Consentimiento__contenedor::-webkit-scrollbar-thumb {
+  border-radius: .25rem;
+  background-color: var(--color-principal);
+}
+
+.Consentimiento__contenedor h2 {
+  color: var(--color-principal);
+  margin-top: 1rem;
+}
+
+.Consentimiento__contenedor_botones {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  margin: 0 2rem 1rem 2rem;
+}
+
+.Consentimiento__texto_aprobacion {
+  margin: 1rem 0 1rem 0;
+}
+
+.Consentimiento__formulario_aprobar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.Consentimiento__boton_aprobar {
+  width: 100%;
+}

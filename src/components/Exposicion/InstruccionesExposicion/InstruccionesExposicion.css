@@ -1,0 +1,48 @@
+.InstruccionesExposicion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  flex: 1;
+  gap: 1rem;
+}
+
+.InstruccionesExposicion h1 {
+  color: var(--color-blanco);
+  font-size: 1.25rem;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.InstruccionesExposicion p {
+  text-align: center;
+  line-height: 1.15;
+  color: var(--color-blanco);
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.InstruccionesExposicion video {
+  width: 100%;
+  height: 40vh;
+  border-radius: 1rem;
+  background: black;
+}
+
+.InstruccionesExposicion__botones {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.InstruccionesExposicion button {
+  width: 100%;
+  opacity: 1;
+  transition: all .25s ease;
+}
+
+.InstruccionesExposicion button:disabled {
+  opacity: .8;
+  box-shadow: none;
+}

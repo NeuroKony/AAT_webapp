@@ -1,0 +1,13 @@
+:root {
+  --color-principal: #5db075;
+  --color-principal-oscuro: #005f4a;
+  --color-texto: #4a5059;
+  --color-fondo: #ffffff;
+  --color-blanco: #ffffff;
+
+  --color-gris-fondo-stepper: #fafafa;
+  --color-border-stepper: #bdc5cd;
+  --color-paso-inactivo-stepper: #e8e8e8;
+
+  --color-cue: #1b18b6;
+}
