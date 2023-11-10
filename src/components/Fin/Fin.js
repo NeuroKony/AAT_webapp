@@ -19,7 +19,7 @@ const Fin = () => {
   const enviarDatos = () => {
     const preguntasExtraSinUltimaPregunta = preguntasExtra.slice(0, -1)
     setError('')
-    axios.post('https://aat-project.netlify.app/netlify/functions/send-mail',
+    axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
     {
       message: `
         <table>
