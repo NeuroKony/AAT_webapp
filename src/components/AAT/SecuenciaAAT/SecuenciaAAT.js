@@ -47,7 +47,9 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
     let to1, to2
 
     console.log(idImagen)
+    console.log(tipoImagen)
     console.log(imagenActual)
+    console.log(tipoCue)
 
     if (gesto === 'Avoid') {
       if (!cueEsApproach) {

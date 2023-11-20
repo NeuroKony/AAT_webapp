@@ -249,7 +249,8 @@ const crearSecuenciaDeRepeticiones = (total, maxRep) => {
 }
 
 const crearWrapperCue = (imagen, cue, neutra) => ({
-  id: imagen.substring(14, imagen.indexOf('.')),
+  //id: imagen.substring(14, imagen.indexOf('.')),
+  id: imagen.substring(15, imagen.indexOf('.', imagen.indexOf('.') + 1)),
   cue,
   imagen,
   neutra
