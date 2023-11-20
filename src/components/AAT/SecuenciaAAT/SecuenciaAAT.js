@@ -46,11 +46,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
     const cueEsApproach =  secuencia[indiceImagen]?.cue
     let to1, to2
 
-    console.log(idImagen)
-    console.log(tipoImagen)
-    console.log(imagenActual)
-    console.log(tipoCue)
-
     if (gesto === 'Avoid') {
       if (!cueEsApproach) {
         setConteoAciertos(v => v + 1)
