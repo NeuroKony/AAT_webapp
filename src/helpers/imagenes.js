@@ -330,7 +330,8 @@ export const crearSecuenciaAAT = conPublicidad => {
 
 export const crearSecuenciaPractica = (conPublicidad) => {
   return (conPublicidad ? imagenesPracticaCP : imagenesPracticaSP).map(img => ({
-    id: img.substring(14, img.indexOf('.')),
+    //id: img.substring(14, img.indexOf('.')),
+    id: img.substring(15, img.indexOf('.', img.indexOf('.') + 1)),
     cue: Math.random() > .5,
     imagen: img,
     neutra: true
