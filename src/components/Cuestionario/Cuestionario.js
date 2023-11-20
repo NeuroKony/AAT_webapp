@@ -25,7 +25,6 @@ const Cuestionario = () => {
   const imagenActual = secuenciaImagenes[indiceImagen]
 
   const siguienteImagen = () => {
-    console.log(imagenActual)
     dispatch(guardaRespuestaCuestionario({ idImagen: imagenActual.id, valoracion }))
     setIndiceImagen(i => i + 1)
   }

@@ -45,6 +45,10 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
     const iconoAcerca = document.getElementById('icono-acerca')
     const cueEsApproach =  secuencia[indiceImagen]?.cue
     let to1, to2
+
+    console.log(idImagen)
+    console.log(imagenActual)
+
     if (gesto === 'Avoid') {
       if (!cueEsApproach) {
         setConteoAciertos(v => v + 1)
