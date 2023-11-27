@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
-import Stepper from '../../Stepper'
 import './SecuenciaExposicion.css'
 
 const MS_EXPOSICION = 3500
@@ -29,7 +28,6 @@ const SecuenciaExposicion = ({ secuencia }) => {
           src={secuencia[indiceImagenActual]}
         />
       </div>
-      <Stepper paso={3} />
     </>
   )
 }

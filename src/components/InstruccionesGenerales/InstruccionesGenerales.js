@@ -1,5 +1,4 @@
 import { useHistory } from 'react-router'
-import Stepper from '../Stepper'
 import './InstruccionesGenerales.css'
 
 const InstruccionesGenerales = () => {
@@ -35,7 +34,6 @@ const InstruccionesGenerales = () => {
           </div>
         </div>
       </div>
-      <Stepper paso={2} />
     </>
   )
 }

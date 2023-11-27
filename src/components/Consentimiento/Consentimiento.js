@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
-import Stepper from '../Stepper'
 import './Consentimiento.css'
 
 const Consentimiento = () => {
@@ -103,7 +102,6 @@ const Consentimiento = () => {
             </form>
           </div>
       }
-      <Stepper paso={1} />
     </div>
   )
 }

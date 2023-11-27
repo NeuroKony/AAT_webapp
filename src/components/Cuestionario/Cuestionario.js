@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { crearSecuenciaCuestionario } from '../../helpers/imagenes'
 import { guardaRespuestaCuestionario } from '../../redux/ducks/pruebas'
-import Stepper from '../Stepper'
 import './Cuestionario.css'
 
 const valoraciones = [
@@ -51,7 +50,6 @@ const Cuestionario = () => {
             </button>
           </div>
         </div>
-        <Stepper paso={5} />
       </>
     )
   }
@@ -78,7 +76,6 @@ const Cuestionario = () => {
           ))}
         </div>
       </div>
-      <Stepper paso={5} />
     </>
   )
 }

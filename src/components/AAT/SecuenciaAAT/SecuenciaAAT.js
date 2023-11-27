@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { guardaPrueba } from '../../../redux/ducks/pruebas'
 import './SecuenciaAAT.css'
-import Stepper from '../../Stepper'
 import { Icon } from '@iconify/react'
 
 const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
@@ -105,7 +104,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
               : <button onClick={repetir}>Repetir práctica</button>
             }
           </div>
-          <Stepper paso={4} />
         </>
       )
     }
@@ -144,7 +142,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
           id="icono-acerca"
         />
       </div>
-      <Stepper paso={4} />
       {secuencia.map((imagen, i) => (
         <img
           src={imagen.imagen}

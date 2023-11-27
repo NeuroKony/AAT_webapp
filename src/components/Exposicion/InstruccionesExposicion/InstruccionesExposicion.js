@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import Stepper from '../../Stepper'
 import './InstruccionesExposicion.css'
 import { useSelector } from 'react-redux'
 import videoNormal from '../../../assets/videos/VIDEO CONTROL.mp4'
@@ -43,7 +42,6 @@ const InstruccionesExposicion = ({ ocultar }) => {
             </button>
           </div>
         </div>
-        <Stepper paso={3} />
       </>
   )
 }

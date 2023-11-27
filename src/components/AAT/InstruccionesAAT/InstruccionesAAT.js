@@ -2,7 +2,6 @@ import {  useState } from 'react'
 import { useSelector } from 'react-redux'
 import videoCirculoAcercar from '../../../assets/videos/Cir.Acercar.mp4'
 import videoCirculoAlejar from '../../../assets/videos/Cir.Alejar.mp4'
-import Stepper from '../../Stepper'
 import './InstruccionesAAT.css'
 
 const InstruccionesAAT = ({ ocultar }) => {
@@ -30,7 +29,6 @@ const InstruccionesAAT = ({ ocultar }) => {
           </button>
         </div>
       </div>
-      <Stepper paso={4} />
     </>
   )
 }
