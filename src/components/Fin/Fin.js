@@ -3,7 +3,7 @@ import axios from 'axios'
 import monito from '../../assets/images/monito.svg'
 import Papa from 'papaparse'
 import './Fin.css'
-import { useEffect, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 
 const Fin = () => {
 
@@ -82,10 +82,6 @@ const Fin = () => {
         setError('Ocurrió un error al enviar los datos')
       })
     }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]); 
-
-  useEffect(() => {
-    enviarDatos()
-  }, [enviarDatos])
 
   return (
     <div className="Fin">

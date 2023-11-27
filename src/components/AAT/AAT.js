@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { Redirect } from 'react-router-dom';
 import { crearSecuenciaAAT2, crearSecuenciaPractica } from '../../helpers/imagenes'
 import './AAT.css'
 import InstruccionesAAT from './InstruccionesAAT'
@@ -22,7 +22,6 @@ const AAT = () => {
 
   const [paso, setPaso] = useState(PASO1)
   const { conPublicidad } = useSelector(state => state.pruebas)
-  const history = useHistory()
   const dispatch = useDispatch()
   const secuenciaPractica = useMemo(() => crearSecuenciaPractica(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [conPublicidad])
   const secuencia = useMemo(() => {
@@ -131,8 +130,7 @@ const AAT = () => {
       )
       break
     default:
-      history.push('/preguntas-pos')
-      return null
+      return <Redirect to='/preguntas-pos' />
   }
 
   return (

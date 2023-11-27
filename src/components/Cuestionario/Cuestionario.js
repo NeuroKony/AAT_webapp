@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
+import { Redirect } from 'react-router-dom';
 import { crearSecuenciaCuestionario } from '../../helpers/imagenes'
 import { guardaRespuestaCuestionario } from '../../redux/ducks/pruebas'
 import './Cuestionario.css'
@@ -19,7 +19,6 @@ const Cuestionario = () => {
   const secuenciaImagenes = useMemo(() => crearSecuenciaCuestionario(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [conPublicidad])
   const [indiceImagen, setIndiceImagen] = useState(-1)
   const [valoracion, setValoracion] = useState(3)
-  const history = useHistory()
   const dispatch = useDispatch()
   const imagenActual = secuenciaImagenes[indiceImagen]
 
@@ -29,8 +28,7 @@ const Cuestionario = () => {
   }
 
   if (indiceImagen >= secuenciaImagenes.length) {
-    history.push('/fin')
-    return null
+    return <Redirect to='/fin' />
   }
   
   if (indiceImagen === -1) {

@@ -21,7 +21,6 @@ const Bienvenida = () => {
         <p>Busca un lugar tranquilo para realizar la experiencia, y hazla en una sola sesión</p>
         <div className="Bienvenida__contenedor_botones_bienvenida">
           <button onClick={() => history.push('/consentimiento')}>Continuar</button>
-          {/* <button onClick={() => history.push('/')} className="boton-secundario">Volver</button> */}
         </div>
       </div>
     </div>
