@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router'
+import { Redirect } from 'react-router-dom';
 import { guardaRespuestaPreguntaExtra } from '../../redux/ducks/pruebas'
 import { preguntasInicio, preguntasFinal } from '../../helpers/preguntas'
 import './PreguntasExtra.css'
@@ -85,7 +85,6 @@ const PreguntasExtra = ({ pos }) => {
   const questionCount = pos ? preguntasInicio.length + preguntasFinal.length : preguntasInicio.length;
 
   const [indicePregunta, setIndicePregunta] = useState(0)
-  const history = useHistory()
   const dispatch = useDispatch()
 
   const siguientePregunta = valoracionPreguntaActual => {
@@ -103,9 +102,11 @@ const PreguntasExtra = ({ pos }) => {
     setIndicePregunta(i => i + 1)
   }
 
-  if (indicePregunta >= questionCount) {
-    history.push(pos ? '/cuestionario' : '/instrucciones-generales')
-    return null
+  if (indicePregunta >= questionCount) {  
+    if (pos)
+      return <Redirect to='/cuestionario' />
+    else
+      return <Redirect to='/instrucciones-generales' />
   }
 
   const { enunciado, valoraciones } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
