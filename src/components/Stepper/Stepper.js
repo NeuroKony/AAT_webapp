@@ -32,12 +32,6 @@ const Stepper = ({ paso }) => {
   ))
 
   return null
-
-  return (
-    <div className="Stepper">
-      {circulos}
-    </div>
-  )
 }
 
 export default Stepper

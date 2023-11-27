@@ -11,7 +11,6 @@ import { Icon } from '@iconify/react'
 const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
 
   const [gesto, setGesto] = useState('')
-  const [tiempoReaccion, setTiempoReaccion] = useState('')
   const [t, setT] = useState(0)
   const handlers = useSwipeable({
     onSwiped: () => setGesto(''),
@@ -62,7 +61,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
         setGesto('')
       }, 600)
       const tReaccion = differenceInMilliseconds(Date.now(), t)
-      setTiempoReaccion(tReaccion)
       if (!practica) {
         dispatch(guardaPrueba({ tReaccion, tipoImagen, tipoCue, respuesta: gesto, idImagen }))
       }
@@ -83,7 +81,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
         setGesto('')
       }, 600)
       const tReaccion = differenceInMilliseconds(Date.now(), t)
-      setTiempoReaccion(tReaccion)
       if (!practica) {
         dispatch(guardaPrueba({ tReaccion, tipoImagen, tipoCue, respuesta: gesto, idImagen }))
       }
@@ -92,7 +89,7 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
       clearTimeout(to1)
       clearTimeout(to2)
     }
-  }, [gesto])
+  }, [gesto, dispatch, idImagen, indiceImagen, practica, secuencia, t, tipoCue, tipoImagen])
 
   if (indiceImagen >= secuencia.length) {
     if (practica) {

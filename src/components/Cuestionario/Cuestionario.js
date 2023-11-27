@@ -62,7 +62,7 @@ const Cuestionario = () => {
         <div className="Cuestionario__pregunta">
           <h1>¿Cómo calificarías la comida en la siguiente imagen? </h1>
           <div className="Cuestionario__contenedor_imagen">
-            <img src={secuenciaImagenes[indiceImagen].imagen} />
+            <img src={secuenciaImagenes[indiceImagen].imagen} alt="food_image" />
           </div>
           {valoraciones.map((v, i) => (
             <button

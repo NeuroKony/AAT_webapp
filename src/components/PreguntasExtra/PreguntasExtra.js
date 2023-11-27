@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 import { guardaRespuestaPreguntaExtra } from '../../redux/ducks/pruebas'
+import { preguntasInicio, preguntasFinal } from '../../helpers/preguntas'
 import './PreguntasExtra.css'
 
-const preguntasExtra = [
+/*const preguntasExtra = [
   {
     enunciado: '¿Te sientes contento en este momento?',
     valoraciones: [
@@ -77,32 +78,37 @@ const preguntasExtra = [
   },
 
 ]
+*/
 
 const PreguntasExtra = ({ pos }) => {
+
+  const questionCount = pos ? preguntasInicio.length + preguntasFinal.length : preguntasInicio.length;
 
   const [indicePregunta, setIndicePregunta] = useState(0)
   const history = useHistory()
   const dispatch = useDispatch()
 
   const siguientePregunta = valoracionPreguntaActual => {
-    const { enunciado } = preguntasExtra[indicePregunta]
+    const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
+
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
     // Esto es para saltarse la última pregunta
-    if (!pos && indicePregunta === preguntasExtra.length - 2) {
-      dispatch(guardaRespuestaPreguntaExtra({ enunciado: preguntasExtra[indicePregunta + 1].enunciado, valoracion: '-', pos }))
+    /*if (!pos && indicePregunta === preguntasInicio.length - 1) {
+      dispatch(guardaRespuestaPreguntaExtra({ enunciado: preguntasInicio[indicePregunta + 1].enunciado, valoracion: '-', pos }))
       setIndicePregunta(i => i + 2)
     }
     else {
       setIndicePregunta(i => i + 1)
-    }
+    }*/
+    setIndicePregunta(i => i + 1)
   }
 
-  if (indicePregunta >= preguntasExtra.length) {
+  if (indicePregunta >= questionCount) {
     history.push(pos ? '/cuestionario' : '/instrucciones-generales')
     return null
   }
 
-  const { enunciado, valoraciones } = preguntasExtra[indicePregunta]
+  const { enunciado, valoraciones } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
 
   return (
     <div className="PreguntasExtra">
@@ -112,7 +118,7 @@ const PreguntasExtra = ({ pos }) => {
           <button
             className="PreguntasExtra__boton"
             key={`boton-valoracion-${i + 1}`}
-            onClick={() => siguientePregunta(indicePregunta === preguntasExtra.length - 1 ? preguntasExtra[indicePregunta].valoraciones[i] : i + 1)} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
+            onClick={() => siguientePregunta((indicePregunta === questionCount.length - 1 && pos) ? preguntasFinal[indicePregunta].valoraciones[i] : i + 1)} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
           >
             {v}
           </button>

@@ -21,7 +21,7 @@ const InstruccionesExposicion = ({ ocultar }) => {
     else {
       return videoDereificacion
     }
-  }, [])
+  }, [condicion])
 
   return (
     <>

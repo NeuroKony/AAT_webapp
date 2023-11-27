@@ -3,7 +3,7 @@ import axios from 'axios'
 import monito from '../../assets/images/monito.svg'
 import Papa from 'papaparse'
 import './Fin.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 
 const Fin = () => {
 
@@ -12,11 +12,7 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  useEffect(() => {
-    enviarDatos()
-  }, [])
-
-  const enviarDatos = () => {
+  const enviarDatos = useMemo(() => { 
     const preguntasExtraSinUltimaPregunta = preguntasExtra.slice(0, -1)
     setError('')
     axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
@@ -85,7 +81,11 @@ const Fin = () => {
         setEnviados(false)
         setError('Ocurrió un error al enviar los datos')
       })
-  }
+    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]); 
+
+  useEffect(() => {
+    enviarDatos()
+  }, [enviarDatos])
 
   return (
     <div className="Fin">
@@ -95,6 +95,7 @@ const Fin = () => {
       </h1>
       <img
         src={monito}
+        alt="monito"
         className="Fin__monito"
       />
       {enviados

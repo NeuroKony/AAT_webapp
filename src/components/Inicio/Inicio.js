@@ -32,7 +32,7 @@ const Inicio = () => {
       dispatch(guardaCirculoAlejar(circuloAlejar === 'Cir.Alejar'))
     }
     refNombre.current.focus()
-  }, [])
+  }, [dispatch]);
 
   return (
     <div className="Inicio" style={{ height }}>

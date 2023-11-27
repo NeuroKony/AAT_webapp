@@ -1,4 +1,4 @@
-const preguntasInicio = [
+export const preguntasInicio = [
   {
     enunciado: '¿Te sientes contento en este momento?',
     valoraciones: [
@@ -58,21 +58,10 @@ const preguntasInicio = [
       '6',
       '7: Muchos deseos',
     ]
-  },
-  {
-    enunciado: '¿Hace cuánto tiempo tuviste tu última comida?',
-    valoraciones: [
-      'Ayer',
-      'Hace 4 horas',
-      'Hace 2 horas',
-      'Hace 1 hora',
-      'Hace menos de 1 hora'
-    ]
-  },
-
+  }
 ]
 
-const preguntasFinal = [
+export const preguntasFinal = [
   {
     enunciado: '¿Hace cuánto tiempo tuviste tu última comida?',
     valoraciones: [

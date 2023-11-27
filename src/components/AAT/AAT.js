@@ -24,10 +24,10 @@ const AAT = () => {
   const { conPublicidad } = useSelector(state => state.pruebas)
   const history = useHistory()
   const dispatch = useDispatch()
-  const secuenciaPractica = useMemo(() => crearSecuenciaPractica(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [])
+  const secuenciaPractica = useMemo(() => crearSecuenciaPractica(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [conPublicidad])
   const secuencia = useMemo(() => {
     return crearSecuenciaAAT2(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 2 : 1000)
-  }, [])
+  }, [conPublicidad])
 
   let componente
   switch(paso) {
@@ -55,7 +55,7 @@ const AAT = () => {
                   onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
                 />
                 <label htmlFor="manoIzquierda">
-                  <img className="AAT__imagen_mano" src={imagenManoIzquierda} />
+                  <img className="AAT__imagen_mano" src={imagenManoIzquierda} alt="imagen_mano" />
                 </label>
               </div>
               <div className="AAT__contenedor_radio">
@@ -67,7 +67,7 @@ const AAT = () => {
                   onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
                 />
                 <label htmlFor="manoDerecha">
-                  <img className="AAT__imagen_mano" src={imagenManoDerecha} />
+                  <img className="AAT__imagen_mano" src={imagenManoDerecha} alt="imagen_mano" />
                 </label>
               </div>
               <div className="AAT__contenedor_radio">
@@ -79,7 +79,7 @@ const AAT = () => {
                   onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
                 />
                 <label htmlFor="manoIzquierdaSostenido">
-                  <img className="AAT__imagen_mano" src={imagenManoIzquierdaSostenido} />
+                  <img className="AAT__imagen_mano" src={imagenManoIzquierdaSostenido} alt="imagen_mano" />
                 </label>
               </div>
               <div className="AAT__contenedor_radio">
@@ -91,7 +91,7 @@ const AAT = () => {
                   onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
                 />
                 <label htmlFor="manoDerechaSostenido">
-                  <img className="AAT__imagen_mano" src={imagenManoDerechaSostenido} />
+                  <img className="AAT__imagen_mano" src={imagenManoDerechaSostenido} alt="imagen_mano" />
                 </label>
               </div>
             </div>

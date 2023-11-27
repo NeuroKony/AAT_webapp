@@ -63,12 +63,17 @@ const slice = createSlice({
     },
     guardaRespuestaPreguntaExtra(state, action) {
       const { enunciado, valoracion, pos } = action.payload
-      if (pos) {
-        const indicePregunta = state.preguntasExtra.findIndex(p => p.enunciado === enunciado)
-        state.preguntasExtra[indicePregunta].valoracionPos = valoracion
+      const indicePregunta = state.preguntasExtra.findIndex(p => p.enunciado === enunciado)
+
+      if (indicePregunta === -1) {
+        if (pos)
+          state.preguntasExtra.push({ enunciado, valoracionPre: '-', valoracionPos: valoracion })
+        else 
+          state.preguntasExtra.push({ enunciado, valoracionPre: valoracion, valoracionPos: '-' })
       }
       else {
-        state.preguntasExtra.push({ enunciado, valoracionPre: valoracion, valoracionPos: '-' })
+        // if the question exists we are in pos
+        state.preguntasExtra[indicePregunta].valoracionPos = valoracion
       }
     }
   }
