@@ -19,8 +19,9 @@ const PASO5 = 'PASO5'
 const PASO6 = 'PASO6'
 
 const AAT = () => {
-
+  
   const [paso, setPaso] = useState(PASO1)
+
   const { conPublicidad } = useSelector(state => state.pruebas)
   const dispatch = useDispatch()
   const secuenciaPractica = useMemo(() => crearSecuenciaPractica(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [conPublicidad])

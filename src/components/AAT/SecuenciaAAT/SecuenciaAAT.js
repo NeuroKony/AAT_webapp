@@ -1,5 +1,5 @@
 import { useSwipeable } from 'react-swipeable'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { differenceInMilliseconds } from 'date-fns'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
@@ -27,7 +27,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
   const idImagen = secuencia[indiceImagen]?.id
   const tipoImagen = secuencia[indiceImagen]?.neutra ? 'Neutral' : 'Attractive'
   const tipoCue = secuencia[indiceImagen]?.cue ? (circuloAlejar ? 'Cuadrado' : 'Círculo') : (circuloAlejar ? 'Círculo' : 'Cuadrado')
-  const firstRun = useRef(true);
 
   useEffect(() => {
     setT(Date.now())
@@ -36,16 +35,6 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
   useEffect(() => {
     setIndiceImagen(0)
   }, [practica])
-
-  // trigger on component mount
-  useEffect(() => {
-    // jumping first run onload page
-    if (firstRun.current) {
-      firstRun.current = false;
-      return;
-    }
-    siguiente();
-  }, [siguiente]);
 
   useEffect(() => {
     const el = document.getElementById('x')

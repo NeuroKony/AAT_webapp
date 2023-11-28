@@ -30,6 +30,8 @@ const Inicio = () => {
       dispatch(guardaGrupo(grupo))
       dispatch(guardaCondicion(nombreCondicion))
       dispatch(guardaCirculoAlejar(circuloAlejar === 'Cir.Alejar'))
+    } else {
+      console.warn('Recordar agregar parámetros')
     }
     refNombre.current.focus()
   }, [dispatch]);
