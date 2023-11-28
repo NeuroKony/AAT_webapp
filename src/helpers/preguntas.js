@@ -9,7 +9,8 @@ export const preguntasInicio = [
       '5',
       '6',
       '7: Extremadamente contento',
-    ]
+    ],
+    answer_type: "number"
   },
   {
     enunciado: '¿Estás hambriento en este momento?',
@@ -21,7 +22,8 @@ export const preguntasInicio = [
       '5',
       '6',
       '7: Extremadamente hambriento',
-    ]
+    ],
+    answer_type: "number"
   },
   {
     enunciado: '¿Te sientes ansioso en este momento?',
@@ -33,7 +35,8 @@ export const preguntasInicio = [
       '5',
       '6',
       '7: Extremadamente ansioso',
-    ]
+    ],
+    answer_type: "number"
   },
   {
     enunciado: '¿Te sientes estresado en este momento?',
@@ -45,7 +48,8 @@ export const preguntasInicio = [
       '5',
       '6',
       '7: Extremadamente estresado',
-    ]
+    ],
+    answer_type: "number"
   },
   {
     enunciado: '¿Sientes deseos de comer?',
@@ -57,7 +61,8 @@ export const preguntasInicio = [
       '5',
       '6',
       '7: Muchos deseos',
-    ]
+    ],
+    answer_type: "number"
   }
 ]
 
@@ -70,7 +75,8 @@ export const preguntasFinal = [
       'Hace 2 horas',
       'Hace 1 hora',
       'Hace menos de 1 hora'
-    ]
+    ],
+    answer_type: "text"
   },
 
 ]

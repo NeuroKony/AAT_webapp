@@ -89,7 +89,6 @@ const PreguntasExtra = ({ pos }) => {
 
   const siguientePregunta = valoracionPreguntaActual => {
     const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
-
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
     setIndicePregunta(i => i + 1)
   }
@@ -111,7 +110,13 @@ const PreguntasExtra = ({ pos }) => {
           <button
             className="PreguntasExtra__boton"
             key={`boton-valoracion-${i + 1}`}
-            onClick={() => siguientePregunta((indicePregunta === questionCount.length - 1 && pos) ? preguntasFinal[indicePregunta].valoraciones[i] : i + 1)} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
+            onClick={() => {
+              // we are in pre-preguntas
+              if (indicePregunta - preguntasInicio.length < 0)
+                siguientePregunta((preguntasInicio[indicePregunta]["answer_type"] === "text") ? preguntasInicio[indicePregunta].valoraciones[i] : i + 1)
+              else
+                siguientePregunta((preguntasFinal[indicePregunta - preguntasInicio.length]["answer_type"] === "text") ? preguntasFinal[indicePregunta - preguntasInicio.length].valoraciones[i] : i + 1)
+            }} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
           >
             {v}
           </button>
