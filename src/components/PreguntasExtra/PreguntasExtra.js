@@ -91,14 +91,6 @@ const PreguntasExtra = ({ pos }) => {
     const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
 
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
-    // Esto es para saltarse la última pregunta
-    /*if (!pos && indicePregunta === preguntasInicio.length - 1) {
-      dispatch(guardaRespuestaPreguntaExtra({ enunciado: preguntasInicio[indicePregunta + 1].enunciado, valoracion: '-', pos }))
-      setIndicePregunta(i => i + 2)
-    }
-    else {
-      setIndicePregunta(i => i + 1)
-    }*/
     setIndicePregunta(i => i + 1)
   }
 

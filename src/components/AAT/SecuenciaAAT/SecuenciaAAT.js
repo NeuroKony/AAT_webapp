@@ -56,9 +56,9 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
     let to1, to2
 
     // jump bad updates
-    if (el === null || iconoAleja === null) {
+    /*if (el === null || iconoAleja === null) {
       return
-    }
+    }*/
 
     if (gesto === 'Avoid') {
       if (!cueEsApproach) {
@@ -104,7 +104,7 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
       clearTimeout(to1)
       clearTimeout(to2)
     }
-  }, [gesto, dispatch, idImagen, indiceImagen, practica, secuencia, t, tipoCue, tipoImagen])
+  }, [gesto])
 
   if (indiceImagen >= secuencia.length) {
     if (practica) {
