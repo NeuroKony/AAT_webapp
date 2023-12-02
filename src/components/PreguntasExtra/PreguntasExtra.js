@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { guardaRespuestaPreguntaExtra } from '../../redux/ducks/pruebas'
-import { preguntasInicio, preguntasFinal } from '../../helpers/preguntas'
+import { preguntasInicio, preguntasPost } from '../../helpers/preguntas'
 import './PreguntasExtra.css'
 
 /*const preguntasExtra = [
@@ -82,13 +82,13 @@ import './PreguntasExtra.css'
 
 const PreguntasExtra = ({ pos }) => {
 
-  const questionCount = pos ? preguntasInicio.length + preguntasFinal.length : preguntasInicio.length;
+  const questionCount = pos ? preguntasInicio.length + preguntasPost.length : preguntasInicio.length;
 
   const [indicePregunta, setIndicePregunta] = useState(0)
   const dispatch = useDispatch()
 
   const siguientePregunta = valoracionPreguntaActual => {
-    const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
+    const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
     setIndicePregunta(i => i + 1)
   }
@@ -100,7 +100,7 @@ const PreguntasExtra = ({ pos }) => {
       return <Redirect to='/instrucciones-generales' />
   }
 
-  const { enunciado, valoraciones } = (indicePregunta >= preguntasInicio.length) ? preguntasFinal[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
+  const { enunciado, valoraciones } = (indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
 
   return (
     <div className="PreguntasExtra">
@@ -115,7 +115,7 @@ const PreguntasExtra = ({ pos }) => {
               if (indicePregunta - preguntasInicio.length < 0)
                 siguientePregunta((preguntasInicio[indicePregunta]["answer_type"] === "text") ? preguntasInicio[indicePregunta].valoraciones[i] : i + 1)
               else
-                siguientePregunta((preguntasFinal[indicePregunta - preguntasInicio.length]["answer_type"] === "text") ? preguntasFinal[indicePregunta - preguntasInicio.length].valoraciones[i] : i + 1)
+                siguientePregunta((preguntasPost[indicePregunta - preguntasInicio.length]["answer_type"] === "text") ? preguntasPost[indicePregunta - preguntasInicio.length].valoraciones[i] : i + 1)
             }} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
           >
             {v}

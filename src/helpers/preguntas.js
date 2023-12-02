@@ -66,7 +66,7 @@ export const preguntasInicio = [
   }
 ]
 
-export const preguntasFinal = [
+export const preguntasPost = [
   {
     enunciado: '¿Hace cuánto tiempo tuviste tu última comida?',
     valoraciones: [
