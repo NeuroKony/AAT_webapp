@@ -1,3 +1,6 @@
+import _ from 'lodash'
+
+/*
 import AttrCP1 from '../assets/images/study/Atr_CP/131_AP_0234.jpg'
 import AttrCP2 from '../assets/images/study/Atr_CP/132_AP_0032.jpg'
 import AttrCP3 from '../assets/images/study/Atr_CP/133_AP_0304.jpg'
@@ -103,8 +106,6 @@ import PracticaCP7 from '../assets/images/study/PP/PP6_1075.png'
 import PracticaCP8 from '../assets/images/study/PP/PP7_1018.png'
 import PracticaCP9 from '../assets/images/study/PP/PP8_1171.png'
 import PracticaCP10 from '../assets/images/study/PP/PP9_0892.png'
-
-import _ from 'lodash'
 
 export const imagenesAtrCP = [
   AttrCP1,
@@ -223,6 +224,20 @@ export const imagenesPracticaCP = [
   PracticaCP9,
   PracticaCP10,
 ]
+*/
+
+function importAll(r) {
+  let images = [];
+  r.keys().map((item, index) => { images[index] = r(item).default; });
+  return images;
+}
+
+export const imagenesAtrCP = importAll(require.context('../assets/images/study/Atr_CP', false, /\.(png|jpe?g|svg)$/));
+export const imagenesAtrSP = importAll(require.context('../assets/images/study/Atr_SP', false, /\.(png|jpe?g|svg)$/));
+export const imagenesNeuCP = importAll(require.context('../assets/images/study/Neu_CP', false, /\.(png|jpe?g|svg)$/));
+export const imagenesNeuSP = importAll(require.context('../assets/images/study/Neu_SP', false, /\.(png|jpe?g|svg)$/));
+export const imagenesPracticaSP = importAll(require.context('../assets/images/study/P', false, /\.(png|jpe?g|svg)$/));
+export const imagenesPracticaCP = importAll(require.context('../assets/images/study/PP', false, /\.(png|jpe?g|svg)$/));
 
 export const crearSecuenciaExposicion = conPublicidad => {
   if (conPublicidad) {

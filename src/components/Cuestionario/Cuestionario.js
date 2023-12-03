@@ -28,9 +28,9 @@ const Cuestionario = () => {
   }
 
   if (indiceImagen >= secuenciaImagenes.length) {
-    return <Redirect to='/fin' />
+    return <Redirect to='/preguntas-final' />
   }
-  
+
   if (indiceImagen === -1) {
     return (
       <>

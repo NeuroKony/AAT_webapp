@@ -63,18 +63,16 @@ const slice = createSlice({
     },
     guardaRespuestaPreguntaExtra(state, action) {
       const { enunciado, valoracion, pos } = action.payload
-      const indicePregunta = state.preguntasExtra.findIndex(p => p.enunciado === enunciado)
-
-      if (indicePregunta === -1) {
-        if (pos)
-          state.preguntasExtra.push({ enunciado, valoracionPre: '-', valoracionPos: valoracion })
-        else 
-          state.preguntasExtra.push({ enunciado, valoracionPre: valoracion, valoracionPos: '-' })
-      }
-      else {
-        // if the question exists we are in pos
-        state.preguntasExtra[indicePregunta].valoracionPos = valoracion
-      }
+      if (pos === 0) // pre-questions
+        state.preguntasExtra.push({ enunciado, valoracionPre: valoracion, valoracionPost: '-', valoracionFinal: '-' })
+      else if (pos === 1){  // post-questions (pre-questions + post-questions)
+        const indicePregunta = state.preguntasExtra.findIndex(p => p.enunciado === enunciado)
+        if (indicePregunta === -1)
+          state.preguntasExtra.push({ enunciado, valoracionPre: '-', valoracionPost: valoracion, valoracionFinal: '-' })
+        else
+          state.preguntasExtra[indicePregunta].valoracionPost = valoracion
+      } else // // final-questions
+        state.preguntasExtra.push({ enunciado, valoracionPre: '-', valoracionPost: '-', valoracionFinal: valoracion })
     }
   }
 })

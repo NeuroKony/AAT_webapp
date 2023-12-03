@@ -77,6 +77,80 @@ export const preguntasPost = [
       'Hace menos de 1 hora'
     ],
     answer_type: "text"
-  },
+  }
+]
 
+export const preguntasFinal = [
+  {
+    enunciado: 'Genero:',
+    valoraciones: [
+      'Masculino',
+      'Femenino',
+      'Otro'
+    ],
+    answer_type: "text"
+  },
+  {
+    enunciado: 'Edad:',
+    valoraciones: [
+      '20 o menos',
+      '21-25',
+      '26-30',
+      '31-40',
+      '40 o mas'
+    ],
+    answer_type: "text"
+  },
+  {
+    enunciado: 'Seleccione su tipo de dieta:',
+    valoraciones: [
+      'Omnívoro (de todo)',
+      'Vegetariano',
+      'Vegano',
+      'Pecetariano'
+    ],
+    answer_type: "text"
+  },
+  {
+    enunciado: '¿Que tan frecuente usas apps para pedir comida?',
+    valoraciones: [
+      '1 vez por semana',
+      'De 2 a 3 veces por semana',
+      'De 4 a 5 veces por semana',
+      'De 6 a 7 veces por semana'
+    ],
+    answer_type: "text"
+  },
+  {
+    enunciado: '¿Que tan frecuente te cocinas?',
+    valoraciones: [
+      '1 vez por semana',
+      'De 2 a 3 veces por semana',
+      'De 4 a 5 veces por semana',
+      'De 6 a 7 veces por semana'
+    ],
+    answer_type: "text"
+  },
+    //¿Dentro de tu estilo de vida cuanta importancia le das a tu alimentacion? (0 nada  10 maxima prioridad).
+    //1_____5_____10
+  {
+    enunciado: '¿Cuanto me he informado de lo que es una alimentacion sana?',
+    valoraciones: [
+      'No tengo para nada claro lo que seria una alimentacion sana',
+      'Tengo una vaga idea de lo que seria una alimentacion sana',
+      'Tengo alguna claridad de lo que seria una alimentacion sana',
+      'Tengo muy claro lo que seria una alimentacion sana'
+    ],
+    answer_type: "text"
+  },
+  {
+    enunciado: '¿Cuanto te preocupas de llevar una alimentación sana?',
+    valoraciones: [
+      'No me preocupa para nada',
+      'Me preocupa un poco',
+      'Me preocupa bastante',
+      'Me preocupa demasiado'
+    ],
+    answer_type: "text"
+  }
 ]

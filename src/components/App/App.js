@@ -50,10 +50,13 @@ const App = () => {
           <Consentimiento />
         </Route>
         <Route path='/preguntas-pre'>
-          <PreguntasExtra pos={false}/>
+          <PreguntasExtra pos={0}/>
         </Route>
         <Route path='/preguntas-pos'>
-          <PreguntasExtra pos={true}/>
+          <PreguntasExtra pos={1}/>
+        </Route>
+        <Route path='/preguntas-final'>
+          <PreguntasExtra pos={2}/>
         </Route>
         <Route path='/bienvenida'>
           <Bienvenida />

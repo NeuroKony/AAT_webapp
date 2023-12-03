@@ -2,105 +2,32 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { guardaRespuestaPreguntaExtra } from '../../redux/ducks/pruebas'
-import { preguntasInicio, preguntasPost } from '../../helpers/preguntas'
+import { preguntasInicio, preguntasPost, preguntasFinal } from '../../helpers/preguntas'
 import './PreguntasExtra.css'
-
-/*const preguntasExtra = [
-  {
-    enunciado: '¿Te sientes contento en este momento?',
-    valoraciones: [
-      '1: Para nada contento',
-      '2',
-      '3',
-      '4: Ni contento ni no contento',
-      '5',
-      '6',
-      '7: Extremadamente contento',
-    ]
-  },
-  {
-    enunciado: '¿Estás hambriento en este momento?',
-    valoraciones: [
-      '1: Nada hambriento',
-      '2',
-      '3',
-      '4: Ni hambriento ni no hambriento',
-      '5',
-      '6',
-      '7: Extremadamente hambriento',
-    ]
-  },
-  {
-    enunciado: '¿Te sientes ansioso en este momento?',
-    valoraciones: [
-      '1: Nada ansioso',
-      '2',
-      '3',
-      '4: Ni ansioso ni no ansioso',
-      '5',
-      '6',
-      '7: Extremadamente ansioso',
-    ]
-  },
-  {
-    enunciado: '¿Te sientes estresado en este momento?',
-    valoraciones: [
-      '1: Nada estresado',
-      '2',
-      '3',
-      '4: Ni estresado ni no estresado',
-      '5',
-      '6',
-      '7: Extremadamente estresado',
-    ]
-  },
-  {
-    enunciado: '¿Sientes deseos de comer?',
-    valoraciones: [
-      '1: Nada de deseos',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7: Muchos deseos',
-    ]
-  },
-  {
-    enunciado: '¿Hace cuánto tiempo tuviste tu última comida?',
-    valoraciones: [
-      'Ayer',
-      'Hace 4 horas',
-      'Hace 2 horas',
-      'Hace 1 hora',
-      'Hace menos de 1 hora'
-    ]
-  },
-
-]
-*/
 
 const PreguntasExtra = ({ pos }) => {
 
-  const questionCount = pos ? preguntasInicio.length + preguntasPost.length : preguntasInicio.length;
+  const questionCount = (pos === 1) ? preguntasInicio.length + preguntasPost.length : ( (pos === 2) ? preguntasFinal.length : preguntasInicio.length);
 
   const [indicePregunta, setIndicePregunta] = useState(0)
   const dispatch = useDispatch()
 
   const siguientePregunta = valoracionPreguntaActual => {
-    const { enunciado } = (indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
+    const { enunciado } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
     setIndicePregunta(i => i + 1)
   }
 
-  if (indicePregunta >= questionCount) {  
-    if (pos)
+  if (indicePregunta >= questionCount) {
+    if (pos === 0)
+      return <Redirect to='/instrucciones-generales' />
+    else if (pos === 1)
       return <Redirect to='/cuestionario' />
     else
-      return <Redirect to='/instrucciones-generales' />
+      return <Redirect to='/fin'/>
   }
 
-  const { enunciado, valoraciones } = (indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]
+  const { enunciado, valoraciones } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
 
   return (
     <div className="PreguntasExtra">
@@ -111,12 +38,17 @@ const PreguntasExtra = ({ pos }) => {
             className="PreguntasExtra__boton"
             key={`boton-valoracion-${i + 1}`}
             onClick={() => {
-              // we are in pre-preguntas
-              if (indicePregunta - preguntasInicio.length < 0)
-                siguientePregunta((preguntasInicio[indicePregunta]["answer_type"] === "text") ? preguntasInicio[indicePregunta].valoraciones[i] : i + 1)
-              else
-                siguientePregunta((preguntasPost[indicePregunta - preguntasInicio.length]["answer_type"] === "text") ? preguntasPost[indicePregunta - preguntasInicio.length].valoraciones[i] : i + 1)
-            }} // esto es para que la valoracion de la ultima pregunta sea el texto en lugar del numero
+              if (pos !== 2) {
+                // we are in pre-preguntas
+                if (indicePregunta - preguntasInicio.length < 0)
+                  siguientePregunta((preguntasInicio[indicePregunta]["answer_type"] === "text") ? preguntasInicio[indicePregunta].valoraciones[i] : i + 1)
+                else
+                  siguientePregunta((preguntasPost[indicePregunta - preguntasInicio.length]["answer_type"] === "text") ? preguntasPost[indicePregunta - preguntasInicio.length].valoraciones[i] : i + 1)
+              } else {
+                siguientePregunta((preguntasFinal[indicePregunta]["answer_type"] === "text") ? preguntasFinal[indicePregunta].valoraciones[i] : i + 1)
+              }
+
+            }}
           >
             {v}
           </button>
