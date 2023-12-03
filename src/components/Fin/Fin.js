@@ -12,7 +12,7 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
+  let index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
   const lastFood = preguntasExtra.splice(index,1)
 
   const enviarDatos = useMemo(() => {
@@ -83,7 +83,7 @@ const Fin = () => {
         setEnviados(false)
         setError('Ocurrió un error al enviar los datos')
       })
-    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]);
+    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto, lastFood]);
 
   return (
     <div className="Fin">
