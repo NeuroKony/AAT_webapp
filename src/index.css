@@ -1,6 +1,7 @@
 *, *::before, *::after, body {
 	box-sizing: border-box;
   font-family: 'Rubik';
+  overscroll-behavior: none;
 }
 
 @font-face {

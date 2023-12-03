@@ -228,7 +228,7 @@ export const imagenesPracticaCP = [
 
 function importAll(r) {
   let images = [];
-  r.keys().map((item, index) => { images[index] = r(item).default; });
+  r.keys().map((item, index) => (images[index] = r(item).default));
   return images;
 }
 

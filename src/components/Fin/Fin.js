@@ -12,10 +12,10 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  console.log(preguntasExtra)
+  index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
+  const lastFood = preguntasExtra.splice(index,1)
 
   const enviarDatos = useMemo(() => {
-    const preguntasExtraSinUltimaPregunta = preguntasExtra.slice(0, -1)
     setError('')
     axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
     {
@@ -41,7 +41,7 @@ const Fin = () => {
               <td>Forma de respuesta</td><td>${formaDeRespuesta}</td>
             </tr>
             <tr>
-              <td>Última comida</td><td>${preguntasExtra.slice(-1)[0].valoracionPos}</td>
+              <td>Última comida</td><td>${lastFood[0].valoracionPost}</td>
             </tr>
           </tbody>
         </table>
@@ -64,7 +64,7 @@ const Fin = () => {
         newline: "\r\n",
       }),
       filename2: `${sujeto}-${condicion}-cuestionario.csv`,
-      content3: Papa.unparse(preguntasExtraSinUltimaPregunta, {
+      content3: Papa.unparse(preguntasExtra, {
         quotes: true,
         quoteChar: '"',
         escapeChar: '"',
@@ -72,10 +72,9 @@ const Fin = () => {
         header: true,
         newline: "\r\n",
       }),
-      filename3: `${sujeto}-${condicion}-preguntas-extra.csv`,
+      filename3: `${sujeto}-${condicion}-preguntas.csv`,
     })
       .then(() => {
-        throw new Exception();
         setEnviados(true)
         setEnviando(false)
       })
