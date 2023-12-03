@@ -12,7 +12,9 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  const enviarDatos = useMemo(() => { 
+  console.log(preguntasExtra)
+
+  const enviarDatos = useMemo(() => {
     const preguntasExtraSinUltimaPregunta = preguntasExtra.slice(0, -1)
     setError('')
     axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
@@ -73,6 +75,7 @@ const Fin = () => {
       filename3: `${sujeto}-${condicion}-preguntas-extra.csv`,
     })
       .then(() => {
+        throw new Exception();
         setEnviados(true)
         setEnviando(false)
       })
@@ -81,7 +84,7 @@ const Fin = () => {
         setEnviados(false)
         setError('Ocurrió un error al enviar los datos')
       })
-    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]); 
+    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]);
 
   return (
     <div className="Fin">
