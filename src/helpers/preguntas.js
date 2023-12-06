@@ -98,16 +98,15 @@ export const preguntasFinal = [
     question_type: "multichoice"
   },
   {
-    enunciado: 'Edad:',
-    valoraciones: [
-      '20 o menos',
-      '21-25',
-      '26-30',
-      '31-40',
-      '40 o mas'
-    ],
-    answer_type: "text",
-    question_type: "multichoice"
+    enunciado: 'Edad',
+    options: {
+      min: 18,
+      max: 90,
+      step: 1,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
   },
   {
     enunciado: 'Peso aproximado (kilogramos)',

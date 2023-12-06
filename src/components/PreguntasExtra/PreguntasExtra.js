@@ -13,8 +13,6 @@ const PreguntasExtra = ({ pos }) => {
   const [num, setNum] = useState(0)
   const dispatch = useDispatch()
 
-  const { enunciado, valoraciones, question_type, options } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
-
   const siguientePregunta = valoracionPreguntaActual => {
     const { enunciado } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
@@ -29,6 +27,8 @@ const PreguntasExtra = ({ pos }) => {
     else
       return <Redirect to='/fin'/>
   }
+
+  const { enunciado, valoraciones, question_type, options } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
 
   if (question_type === "multichoice") {
     return (
