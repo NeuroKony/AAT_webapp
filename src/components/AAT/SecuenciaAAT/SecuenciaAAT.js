@@ -30,7 +30,7 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
   const tipoImagen = secuencia[indiceImagen]?.neutra ? 'Neutral' : 'Attractive'
   const tipoCue = secuencia[indiceImagen]?.cue ? (circuloAlejar ? 'Cuadrado' : 'Círculo') : (circuloAlejar ? 'Círculo' : 'Cuadrado')
   const intervalRef = useRef();
-  const MS_EXPOSICION = 10000
+  const MS_EXPOSICION = 5000
 
   useEffect(() => {
     setT(Date.now())
