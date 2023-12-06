@@ -10,7 +10,8 @@ export const preguntasInicio = [
       '6',
       '7: Extremadamente contento',
     ],
-    answer_type: "number"
+    answer_type: "number",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Estás hambriento en este momento?',
@@ -23,7 +24,8 @@ export const preguntasInicio = [
       '6',
       '7: Extremadamente hambriento',
     ],
-    answer_type: "number"
+    answer_type: "number",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Te sientes ansioso en este momento?',
@@ -36,7 +38,8 @@ export const preguntasInicio = [
       '6',
       '7: Extremadamente ansioso',
     ],
-    answer_type: "number"
+    answer_type: "number",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Te sientes estresado en este momento?',
@@ -49,7 +52,8 @@ export const preguntasInicio = [
       '6',
       '7: Extremadamente estresado',
     ],
-    answer_type: "number"
+    answer_type: "number",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Sientes deseos de comer?',
@@ -62,7 +66,8 @@ export const preguntasInicio = [
       '6',
       '7: Muchos deseos',
     ],
-    answer_type: "number"
+    answer_type: "number",
+    question_type: "multichoice"
   }
 ]
 
@@ -76,7 +81,8 @@ export const preguntasPost = [
       'Hace 1 hora',
       'Hace menos de 1 hora'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   }
 ]
 
@@ -88,7 +94,8 @@ export const preguntasFinal = [
       'Femenino',
       'Otro'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   },
   {
     enunciado: 'Edad:',
@@ -99,7 +106,48 @@ export const preguntasFinal = [
       '31-40',
       '40 o mas'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
+  },
+  {
+    enunciado: 'Peso aproximado (kilogramos)',
+    options: {
+      min: 0,
+      max: 500,
+      step: 1,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
+  {
+    enunciado: 'Estatura aproximada (metros)',
+    options: {
+      min: 0,
+      max: 6,
+      step: 0.01,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
+  {
+    enunciado: '¿Ha sido diagnósticado con algún trastorno de conducta alimentaria en los últimos 2 años?',
+    valoraciones: [
+      'Si',
+      'No'
+    ],
+    answer_type: "text",
+    question_type: "multichoice"
+  },
+  {
+    enunciado: '¿Se encuentra bajo tratamiento psiquiátrico con medicamentos psicotrópicos? (estrella verde en el envase)',
+    valoraciones: [
+      'Si',
+      'No'
+    ],
+    answer_type: "text",
+    question_type: "multichoice"
   },
   {
     enunciado: 'Seleccione su tipo de dieta:',
@@ -109,7 +157,8 @@ export const preguntasFinal = [
       'Vegano',
       'Pecetariano'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Que tan frecuente usas apps para pedir comida?',
@@ -119,7 +168,8 @@ export const preguntasFinal = [
       'De 4 a 5 veces por semana',
       'De 6 a 7 veces por semana'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Que tan frecuente te cocinas?',
@@ -129,10 +179,19 @@ export const preguntasFinal = [
       'De 4 a 5 veces por semana',
       'De 6 a 7 veces por semana'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   },
-    //¿Dentro de tu estilo de vida cuanta importancia le das a tu alimentacion? (0 nada  10 maxima prioridad).
-    //1_____5_____10
+  {
+    enunciado: '¿Dentro de tu estilo de vida cuanta importancia le das a tu alimentacion? (0 nada  10 maxima prioridad).',
+    options: {
+      min: 0,
+      max: 10,
+      step: 1
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
   {
     enunciado: '¿Cuanto me he informado de lo que es una alimentacion sana?',
     valoraciones: [
@@ -141,7 +200,8 @@ export const preguntasFinal = [
       'Tengo alguna claridad de lo que seria una alimentacion sana',
       'Tengo muy claro lo que seria una alimentacion sana'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   },
   {
     enunciado: '¿Cuanto te preocupas de llevar una alimentación sana?',
@@ -151,6 +211,7 @@ export const preguntasFinal = [
       'Me preocupa bastante',
       'Me preocupa demasiado'
     ],
-    answer_type: "text"
+    answer_type: "text",
+    question_type: "multichoice"
   }
 ]

@@ -1,5 +1,5 @@
 import { useSwipeable } from 'react-swipeable'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { differenceInMilliseconds } from 'date-fns'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,14 +19,18 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
   })
   const [conteoAciertos, setConteoAciertos] = useState(0)
   const { circuloAlejar } = useSelector(state => state.pruebas)
-  const dispatch = useDispatch()
 
+  //dispatch, idImagen, indiceImagen, practica, secuencia, t, tipoCue, tipoImagen
+
+  const dispatch = useDispatch()
   const totalImagenes = secuencia?.length
   const [indiceImagen, setIndiceImagen] = useState(0)
   const imagenActual = secuencia[indiceImagen]
   const idImagen = secuencia[indiceImagen]?.id
   const tipoImagen = secuencia[indiceImagen]?.neutra ? 'Neutral' : 'Attractive'
   const tipoCue = secuencia[indiceImagen]?.cue ? (circuloAlejar ? 'Cuadrado' : 'Círculo') : (circuloAlejar ? 'Círculo' : 'Cuadrado')
+  const intervalRef = useRef();
+  const MS_EXPOSICION = 10000
 
   useEffect(() => {
     setT(Date.now())
@@ -37,6 +41,14 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
   }, [practica])
 
   useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setGesto('None');
+    }, MS_EXPOSICION);
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  useEffect(() => {
+
     const el = document.getElementById('x')
     const cue = document.getElementById('y')
     const iconoAleja = document.getElementById('icono-aleja')
@@ -44,10 +56,8 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
     const cueEsApproach =  secuencia[indiceImagen]?.cue
     let to1, to2
 
-    // jump bad updates
-    /*if (el === null || iconoAleja === null) {
-      return
-    }*/
+    if (!(el && cue && iconoAleja && iconoAcerca))
+      return null
 
     if (gesto === 'Avoid') {
       if (!cueEsApproach) {
@@ -88,11 +98,30 @@ const SecuenciaAAT = ({ siguiente, repetir, practica, secuencia }) => {
       if (!practica) {
         dispatch(guardaPrueba({ tReaccion, tipoImagen, tipoCue, respuesta: gesto, idImagen }))
       }
+    } else if (gesto === 'None') {
+      el.classList.add('SecuenciaAAT__contenedor_imagen--aleja')
+      iconoAleja.classList.add('SecuenciaAAT__icono--destacado')
+      cue.style.display = 'none'
+      to1 = setTimeout(() => setIndiceImagen(i => i + 1), 550)
+      to2 = setTimeout(() => {
+        el.classList.remove('SecuenciaAAT__contenedor_imagen--acerca')
+        iconoAcerca.classList.remove('SecuenciaAAT__icono--destacado')
+        cue.style.display = 'block'
+        setT(Date.now())
+        setGesto('')
+      }, 600)
+      const tReaccion = differenceInMilliseconds(Date.now(), t)
+      if (!practica) {
+        dispatch(guardaPrueba({ tReaccion, tipoImagen, tipoCue, respuesta: gesto, idImagen }))
+      }
     }
     return () => {
+      if (gesto !== '')
+        clearInterval(intervalRef.current);
       clearTimeout(to1)
       clearTimeout(to2)
     }
+    // eslint-disable-next-line 
   }, [gesto])
 
   if (indiceImagen >= secuencia.length) {
