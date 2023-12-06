@@ -28,7 +28,7 @@ const Consentimiento = () => {
                 <p>Dra. Constanza Baquedano</p>
                 <p>Escuela de Psicología, Universidad del Desarrollo</p>
                 <p>
-                  Usted ha sido invitado a participar en el estudio “Entendiendo la percepción de imágenes de comida” a cargo de la investigadora Post-Doctoral, Dra. Constanza y patrocinado por el profesor Dr. Jaime silva, docente de la Escuela de Psicología de la Universidad del Desarrollo. Esta investigación se llevará a cabo entre los años 2021 - 2023 y es financiada con un fondo Post-Doctoral entregado a la Dra. Baquedano por la Agencia Nacional de Investigación y Desarrollo de Chile (ANID). El objeto de esta carta es ayudarlo a tomar la decisión de participar en la presente investigación.
+                  Usted ha sido invitado a participar en el estudio “Entendiendo la percepción de imágenes de comida” a cargo de la investigadora Post-Doctoral Dra. Constanza. Esta investigación se llevará a cabo entre los años 2024 - 2025 y es financiada con un fondo Post-Doctoral entregado a la Dra. Baquedano por la Agencia Nacional de Investigación y Desarrollo de Chile (ANID). El objeto de esta carta es ayudarlo a tomar la decisión de participar en la presente investigación.
                 </p>
                 <h2>¿Cuál es el propósito de esta investigación?</h2>
                 <p>
@@ -36,12 +36,11 @@ const Consentimiento = () => {
                 </p>
                 <h2>¿En qué consiste su participación?</h2>
                 <p>
-                  Si acepta, su participación consistirá en realizar una tarea de reconocimiento visual, en las que verá imágenes de diferentes ítems de comida en una pantalla de computador. Su tarea consistirá en alejarse o acercarse estas imágenes de acuerdo al color del marco con que estas imágenes sean presentadas. Al inicio y al final de la sesión se le pedirá llenar algunos cuestionarios con el objeto de conocer información básica sobre su estado antes y después de realizar las tareas. Además al finalizar la sesión experimental se le hará una breve entrevista para saber sobre su parecer respecto a la tarea.
+                  Si acepta, su participación consistirá en realizar una tarea de reconocimiento visual, en las que verá imágenes de diferentes ítems de comida en una pantalla de computador. Su tarea consistirá en alejarse o acercarse estas imágenes de acuerdo al color del marco con que estas imágenes sean presentadas. Al inicio y al final de la sesión se le pedirá llenar algunos cuestionarios con el objeto de conocer información básica sobre su estado antes y después de realizar las tareas.
                 </p>
                 <h2>¿Cuánto durará su participación?</h2>
                 <p>
-                  Su participación consta de 1 sesión de aproximadamente 1,5 horas de duración. Este tiempo incluye todas las instancias previas a la realización de la tarea, la ejecución de la tarea y el tiempo para responder a los cuestionarios y 
-                  entrevista.
+                  Su participación consta de 1 sesión de aproximadamente 15 minutos de duración. Este tiempo incluye todas las instancias previas a la realización de la tarea, la ejecución de la tarea y el tiempo para responder a los cuestionarios.
                 </p>
                 <h2>¿Qué riesgos corre al participar?</h2>
                 <p>
@@ -49,7 +48,7 @@ const Consentimiento = () => {
                 </p>
                 <h2>¿Qué beneficios puede tener su participación?</h2>
                 <p>
-                  Este estudio no tiene beneficios directos para usted; sin embargo al participar estará contribuyendo al conocimiento científico sobre la percepción visual de imágenes de comida y sus posibles aplicaciones en la salud mental y física. Además este estudio contempla una compensación monetaria por su participación en la totalidad del experimento, de modo de cubrir eventuales costos asociados a conectividad de internet. 
+                  Este estudio no tiene beneficios directos para usted; sin embargo al participar estará contribuyendo al conocimiento científico sobre la percepción visual de imágenes de comida y sus posibles aplicaciones en la salud mental y física. 
                 </p>
                 <h2>¿Qué pasa con la información y datos que usted entregue?</h2>
                 <p>
