@@ -28,7 +28,7 @@ const Consentimiento = () => {
                 <p>Dra. Constanza Baquedano</p>
                 <p>Escuela de Psicología, Universidad del Desarrollo</p>
                 <p>
-                  Usted ha sido invitado a participar en el estudio “Entendiendo la percepción de imágenes de comida” a cargo de la investigadora Post-Doctoral Dra. Constanza. Esta investigación se llevará a cabo entre los años 2024 - 2025 y es financiada con un fondo Post-Doctoral entregado a la Dra. Baquedano por la Agencia Nacional de Investigación y Desarrollo de Chile (ANID). El objeto de esta carta es ayudarlo a tomar la decisión de participar en la presente investigación.
+                  Usted ha sido invitado a participar en el estudio “Entendiendo la percepción de imágenes de comida” a cargo de la investigadora Post-Doctoral Dra. Constanza. Esta investigación se llevará a cabo entre los años 2024 - 2025, el objeto de esta carta es ayudarlo a tomar la decisión de participar en la presente investigación.
                 </p>
                 <h2>¿Cuál es el propósito de esta investigación?</h2>
                 <p>
@@ -64,7 +64,7 @@ const Consentimiento = () => {
                 </p>
                 <h2>¿A quién puede contactar Ud. para saber más de este estudio o si le surgen dudas?</h2>
                 <p>
-                  Si tiene cualquier pregunta acerca de esta investigación, puede contactar a la Dra. Constanza Baquedano (E-mail: constanzabaquedano@gmail.com, cel:991240886). Si usted tiene alguna consulta o preocupación respecto a sus derechos como participante de este estudio, puede contactar a Ximena Ballivian Searle, secretaria ejecutiva del Comité de Ética institucional en investigación (CEII) de la universidad del desarrollo, E-mail: xballivian@udd.cl, cel: (56-9) 9138 8745.
+                  Si tiene cualquier pregunta acerca de esta investigación, puede contactar a la Dra. Constanza Baquedano (E-mail: constanzabaquedano@gmail.com, cel:991240886). Si usted tiene alguna consulta o preocupación respecto a sus derechos como participante de este estudio, puede contactar a Paula Rojas (paula.rojas.s@uai.cl, teléfono +562 2331 1812) directora de investigación de la Universidad Adolfo Ibáñez.
                 </p>
               </div>
             </div>
