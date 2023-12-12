@@ -51,36 +51,10 @@ const Inicio = () => {
             ref={refNombre}
           />
         </div>
-        {/* <div className="contenedor_campo">
-          <label className="Inicio__label_destacado">Mano dominante</label>
-          <div className="Inicio__contenedor_grupo_radios">
-            <div className="Inicio__contenedor_radio">
-              <input
-                type="radio"
-                name="mano"
-                value="izquierda"
-                id="radio-mano-izquierda"
-                required
-                onChange={e => setManoDominante(e.target.value)}
-              />
-              <label htmlFor="radio-mano-izquierda">Izquierda</label>
-            </div>
-            <div className="Inicio__contenedor_radio">
-              <input
-                type="radio"
-                name="mano"
-                value="derecha"
-                id="radio-mano-derecha"
-                required
-                onChange={e => setManoDominante(e.target.value)}
-              />
-              <label htmlFor="radio-mano-derecha">Derecha</label>
-            </div>
-          </div>
-        </div> */}
         <button
           type="submit"
           className="Inicio__boton"
+          onClick={() => document.documentElement.requestFullscreen()}
         >
           Comenzar
         </button>

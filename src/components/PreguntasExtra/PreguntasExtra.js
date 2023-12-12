@@ -17,6 +17,7 @@ const PreguntasExtra = ({ pos }) => {
     const { enunciado } = (pos !== 2) ? ((indicePregunta >= preguntasInicio.length) ? preguntasPost[indicePregunta - preguntasInicio.length] : preguntasInicio[indicePregunta]) : preguntasFinal[indicePregunta]
     dispatch(guardaRespuestaPreguntaExtra({ enunciado, valoracion: valoracionPreguntaActual, pos }))
     setIndicePregunta(i => i + 1)
+    setNum('')
   }
 
   if (indicePregunta >= questionCount) {
@@ -64,8 +65,8 @@ const PreguntasExtra = ({ pos }) => {
         <div className="PreguntasExtra__pregunta">
           <h1>{enunciado}</h1>
           <input 
-            name="myInput"
             type="number"
+            value={num}
             autoFocus={true}
             min={options?.min}
             max={options?.max}
@@ -78,8 +79,9 @@ const PreguntasExtra = ({ pos }) => {
             type= "button"
             className="PreguntasExtra__boton"
             onClick={() => {
-              if (!(("min" in options && options.min > num) || ("max" in options && options.max < num)))
+              if (!(("min" in options && options.min > num) || ("max" in options && options.max < num))  && num !== '') {
                 siguientePregunta(num)
+              }
             }}
             value="Siguiente"
           />

@@ -79,6 +79,7 @@ const Fin = () => {
       .then(() => {
         setEnviados(true)
         setEnviando(false)
+        document.exitFullscreen();
       })
       .catch(() => {
         setEnviando(false)
@@ -106,7 +107,7 @@ const Fin = () => {
               disabled={enviando}
               onClick={enviarDatos}
             >
-              {error ? 'Volver a intentarlo' : 'Enviando...' }
+            {error ? 'Volver a intentarlo' : 'Enviando...' }
             </button>
           </>
       }
