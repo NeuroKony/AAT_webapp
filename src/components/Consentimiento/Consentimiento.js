@@ -26,7 +26,7 @@ const Consentimiento = () => {
               <div className="Consentimiento__contenedor_texto">
                 <h2>Entendiendo la percepción de las imágenes de comida</h2>
                 <p>Dra. Constanza Baquedano</p>
-                <p>Escuela de Psicología, Universidad del Desarrollo</p>
+                <p>Escuela de Psicología, Universidad Adolfo Ibáñez</p>
                 <p>
                   Usted ha sido invitado a participar en el estudio “Entendiendo la percepción de imágenes de comida” a cargo de la investigadora Post-Doctoral Dra. Constanza. Esta investigación se llevará a cabo entre los años 2024 - 2025, el objeto de esta carta es ayudarlo a tomar la decisión de participar en la presente investigación.
                 </p>
