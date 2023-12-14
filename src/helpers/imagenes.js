@@ -2,13 +2,8 @@ import _ from 'lodash'
 
 function importAll(r) {
   let images = [];
-  r.keys().map(function(item, index) {
-      images[index] = r(item).default;
-      new Image().src = images[index] 
-      return images[index];
-    }
-  );
-  return images;
+  r.keys().map((item, index) => (images[index] = r(item).default));
+  return images
 }
 
 export const imagenesAtrCP = importAll(require.context('../assets/images/study/Atr_CP', false, /\.(png|jpe?g|svg)$/));
