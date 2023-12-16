@@ -36,7 +36,7 @@ const Consentimiento = () => {
                 </p>
                 <h2>¿En qué consiste su participación?</h2>
                 <p>
-                  Si acepta, su participación consistirá en realizar una tarea de reconocimiento visual, en las que verá imágenes de diferentes ítems de comida en una pantalla de computador. Su tarea consistirá en alejarse o acercarse estas imágenes de acuerdo al color del marco con que estas imágenes sean presentadas. Al inicio y al final de la sesión se le pedirá llenar algunos cuestionarios con el objeto de conocer información básica sobre su estado antes y después de realizar las tareas.
+                  Si acepta, su participación consistirá en realizar una tarea de reconocimiento visual, en las que verá imágenes de diferentes ítems de comida en la pantalla de su teléfono. Su tarea consistirá en alejarse o acercarse estas imágenes de acuerdo al color del marco con que estas imágenes sean presentadas. Al inicio y al final de la sesión se le pedirá llenar algunos cuestionarios con el objeto de conocer información básica sobre su estado antes y después de realizar las tareas.
                 </p>
                 <h2>¿Cuánto durará su participación?</h2>
                 <p>
