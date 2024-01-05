@@ -1,7 +1,26 @@
+import React from 'react';
+import { useWindowSize } from 'react-use';
 import { useState } from 'react'
-import { use100vh } from 'react-div-100vh'
+//import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
 import './Consentimiento.css'
+
+function use100vh() {
+  const ref = React.useRef();
+  const { height } = useWindowSize();
+
+  React.useEffect(
+    () => {
+      if (!ref.current) {
+        return;
+      }
+      ref.current.style.height = height + 'px';
+    },
+    [height],
+  );
+
+  return ref;
+}
 
 const Consentimiento = () => {
 
