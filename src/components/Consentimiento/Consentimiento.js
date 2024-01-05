@@ -1,13 +1,9 @@
 import React from 'react';
 import { useState } from 'react'
-import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
 import './Consentimiento.css'
-//import use100vh from '../../helpers/use100vh'
 
 const Consentimiento = () => {
-
-  const maxHeight = use100vh()
   const history = useHistory()
   const [mostrandoConsentimiento, setMostrandoConsentimiento] = useState(true)
 
