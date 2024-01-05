@@ -19,7 +19,7 @@ const Consentimiento = () => {
   return (
     <div
       className="Consentimiento"
-      style={{ maxHeight, minHeight: '100%!important'}}
+      style={{ minHeight: '100%!important', maxHeight }}
     >
       <h1>Consentimiento informado</h1>
       {mostrandoConsentimiento
