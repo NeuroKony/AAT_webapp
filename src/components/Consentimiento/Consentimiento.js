@@ -1,12 +1,13 @@
 import React from 'react';
-//import { useWindowSize } from 'react-use';
 import { useState } from 'react'
-//import { use100vh } from 'react-div-100vh'
+import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
 import './Consentimiento.css'
+//import use100vh from '../../helpers/use100vh'
 
 const Consentimiento = () => {
 
+  const maxHeight = use100vh()
   const history = useHistory()
   const [mostrandoConsentimiento, setMostrandoConsentimiento] = useState(true)
 
@@ -18,11 +19,7 @@ const Consentimiento = () => {
   return (
     <div
       className="Consentimiento"
-      style={{
-        margin: 0,
-        height: '100%', /* fallback for Js load */
-      //  height: '100%',
-      }}
+      style={{ maxHeight, minHeight: '100%!important'}}
     >
       <h1>Consentimiento informado</h1>
       {mostrandoConsentimiento
@@ -72,7 +69,8 @@ const Consentimiento = () => {
                   Si tiene cualquier pregunta acerca de esta investigación, puede contactar a la Dra. Constanza Baquedano (E-mail: constanzabaquedano@gmail.com, cel:991240886). Si usted tiene alguna consulta o preocupación respecto a sus derechos como participante de este estudio, puede contactar a Paula Rojas (paula.rojas.s@uai.cl, teléfono +562 2331 1812) directora de investigación de la Universidad Adolfo Ibáñez.
                 </p>
               </div>
-            </div>      
+            </div>
+
             <div className="Consentimiento__contenedor_botones">
               <button onClick={() => setMostrandoConsentimiento(false)}>Continuar</button>
             </div>
