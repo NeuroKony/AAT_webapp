@@ -7,13 +7,6 @@ import './Consentimiento.css'
 
 const Consentimiento = () => {
 
-  const documentHeight = () => {
-    const doc = document.documentElement
-    doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
-  }
-  window.addEventListener('resize', documentHeight)
-  documentHeight()
-
   const history = useHistory()
   const [mostrandoConsentimiento, setMostrandoConsentimiento] = useState(true)
 
@@ -25,7 +18,11 @@ const Consentimiento = () => {
   return (
     <div
       className="Consentimiento"
-      //style={{ maxHeight }}
+      style={{
+        margin: 0,
+        height: '100vh', /* fallback for Js load */
+      //  height: '100%',
+      }}
     >
       <h1>Consentimiento informado</h1>
       {mostrandoConsentimiento
