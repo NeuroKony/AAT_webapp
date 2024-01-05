@@ -1,30 +1,19 @@
 import React from 'react';
-import { useWindowSize } from 'react-use';
+//import { useWindowSize } from 'react-use';
 import { useState } from 'react'
 //import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
 import './Consentimiento.css'
 
-function use100vh() {
-  const ref = React.useRef();
-  const { height } = useWindowSize();
-
-  React.useEffect(
-    () => {
-      if (!ref.current) {
-        return;
-      }
-      ref.current.style.height = height + 'px';
-    },
-    [height],
-  );
-
-  return ref;
-}
-
 const Consentimiento = () => {
 
-  const maxHeight = use100vh()
+  const documentHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+  }
+  window.addEventListener('resize', documentHeight)
+  documentHeight()
+
   const history = useHistory()
   const [mostrandoConsentimiento, setMostrandoConsentimiento] = useState(true)
 
@@ -36,7 +25,7 @@ const Consentimiento = () => {
   return (
     <div
       className="Consentimiento"
-      style={{ maxHeight }}
+      //style={{ maxHeight }}
     >
       <h1>Consentimiento informado</h1>
       {mostrandoConsentimiento
@@ -86,10 +75,9 @@ const Consentimiento = () => {
                   Si tiene cualquier pregunta acerca de esta investigación, puede contactar a la Dra. Constanza Baquedano (E-mail: constanzabaquedano@gmail.com, cel:991240886). Si usted tiene alguna consulta o preocupación respecto a sus derechos como participante de este estudio, puede contactar a Paula Rojas (paula.rojas.s@uai.cl, teléfono +562 2331 1812) directora de investigación de la Universidad Adolfo Ibáñez.
                 </p>
               </div>
+            </div>      
             <div className="Consentimiento__contenedor_botones">
               <button onClick={() => setMostrandoConsentimiento(false)}>Continuar</button>
-            </div>
-            
             </div>
           </>
         : <div className="Consentimiento__contenedor">
