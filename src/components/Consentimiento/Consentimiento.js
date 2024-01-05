@@ -20,7 +20,7 @@ const Consentimiento = () => {
       className="Consentimiento"
       style={{
         margin: 0,
-        height: '100vh', /* fallback for Js load */
+        height: '100%', /* fallback for Js load */
       //  height: '100%',
       }}
     >
