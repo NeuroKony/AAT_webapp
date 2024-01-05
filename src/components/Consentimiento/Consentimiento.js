@@ -86,9 +86,10 @@ const Consentimiento = () => {
                   Si tiene cualquier pregunta acerca de esta investigación, puede contactar a la Dra. Constanza Baquedano (E-mail: constanzabaquedano@gmail.com, cel:991240886). Si usted tiene alguna consulta o preocupación respecto a sus derechos como participante de este estudio, puede contactar a Paula Rojas (paula.rojas.s@uai.cl, teléfono +562 2331 1812) directora de investigación de la Universidad Adolfo Ibáñez.
                 </p>
               </div>
-            </div>
             <div className="Consentimiento__contenedor_botones">
               <button onClick={() => setMostrandoConsentimiento(false)}>Continuar</button>
+            </div>
+            
             </div>
           </>
         : <div className="Consentimiento__contenedor">
