@@ -1,11 +1,9 @@
+import React from 'react';
 import { useState } from 'react'
-import { use100vh } from 'react-div-100vh'
 import { useHistory } from 'react-router'
 import './Consentimiento.css'
 
 const Consentimiento = () => {
-
-  const maxHeight = use100vh()
   const history = useHistory()
   const [mostrandoConsentimiento, setMostrandoConsentimiento] = useState(true)
 
@@ -17,7 +15,12 @@ const Consentimiento = () => {
   return (
     <div
       className="Consentimiento"
-      style={{ maxHeight }}
+      style={{ 
+        display: "flex",
+        flexDirection: "column",
+        flex: "1 1",
+        minHeight: "100%", 
+      }}
     >
       <h1>Consentimiento informado</h1>
       {mostrandoConsentimiento
@@ -68,6 +71,7 @@ const Consentimiento = () => {
                 </p>
               </div>
             </div>
+
             <div className="Consentimiento__contenedor_botones">
               <button onClick={() => setMostrandoConsentimiento(false)}>Continuar</button>
             </div>

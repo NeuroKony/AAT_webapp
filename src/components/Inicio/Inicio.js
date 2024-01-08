@@ -54,7 +54,16 @@ const Inicio = () => {
         <button
           type="submit"
           className="Inicio__boton"
-          onClick={() => document.documentElement.requestFullscreen()}
+          onClick={() => {
+            /*
+            var requestFullScreen = document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen ||  document.documentElement.msRequestFullscreen;
+
+            requestFullScreen.call(document.documentElement);
+            */
+
+            //document.documentElement.requestFullscreen()
+            }
+          }
         >
           Comenzar
         </button>
