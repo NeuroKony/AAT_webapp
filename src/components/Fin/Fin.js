@@ -79,7 +79,6 @@ const Fin = () => {
       .then(() => {
         setEnviados(true)
         setEnviando(false)
-        document.exitFullscreen();
       })
       .catch(() => {
         setEnviando(false)

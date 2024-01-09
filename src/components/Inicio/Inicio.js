@@ -54,7 +54,6 @@ const Inicio = () => {
         <button
           type="submit"
           className="Inicio__boton"
-          onClick={() => document.documentElement.requestFullscreen()}
         >
           Comenzar
         </button>
