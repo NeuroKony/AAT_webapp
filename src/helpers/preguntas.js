@@ -120,10 +120,10 @@ export const preguntasFinal = [
     question_type: "number"
   },
   {
-    enunciado: 'Estatura aproximada (metros)',
+    enunciado: 'Estatura aproximada (centímetros)',
     options: {
       min: 0,
-      max: 6,
+      max: 250,
       step: 0.01,
       maxLength: 2
     },
