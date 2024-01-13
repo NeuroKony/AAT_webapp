@@ -88,67 +88,6 @@ export const preguntasPost = [
 
 export const preguntasFinal = [
   {
-    enunciado: 'Genero:',
-    valoraciones: [
-      'Masculino',
-      'Femenino',
-      'Otro'
-    ],
-    answer_type: "text",
-    question_type: "multichoice"
-  },
-  {
-    enunciado: 'Edad',
-    options: {
-      min: 18,
-      max: 90,
-      step: 1,
-      maxLength: 2
-    },
-    answer_type: "number",
-    question_type: "number"
-  },
-  {
-    enunciado: 'Peso aproximado (kilogramos)',
-    options: {
-      min: 0,
-      max: 500,
-      step: 1,
-      maxLength: 2
-    },
-    answer_type: "number",
-    question_type: "number"
-  },
-  {
-    enunciado: 'Estatura aproximada (centímetros)',
-    options: {
-      min: 0,
-      max: 250,
-      step: 0.01,
-      maxLength: 2
-    },
-    answer_type: "number",
-    question_type: "number"
-  },
-  {
-    enunciado: '¿Ha sido diagnósticado con algún trastorno de conducta alimentaria en los últimos 2 años?',
-    valoraciones: [
-      'Si',
-      'No'
-    ],
-    answer_type: "text",
-    question_type: "multichoice"
-  },
-  {
-    enunciado: '¿Se encuentra bajo tratamiento psiquiátrico con medicamentos psicotrópicos? (estrella verde en el envase)',
-    valoraciones: [
-      'Si',
-      'No'
-    ],
-    answer_type: "text",
-    question_type: "multichoice"
-  },
-  {
     enunciado: 'Seleccione su tipo de dieta:',
     valoraciones: [
       'Omnívoro (de todo)',
@@ -209,6 +148,67 @@ export const preguntasFinal = [
       'Me preocupa un poco',
       'Me preocupa bastante',
       'Me preocupa demasiado'
+    ],
+    answer_type: "text",
+    question_type: "multichoice"
+  },
+  {
+    enunciado: 'Genero:',
+    valoraciones: [
+      'Masculino',
+      'Femenino',
+      'Otro'
+    ],
+    answer_type: "text",
+    question_type: "multichoice"
+  },
+  {
+    enunciado: 'Edad',
+    options: {
+      min: 18,
+      max: 90,
+      step: 1,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
+  {
+    enunciado: 'Peso aproximado (kilogramos)',
+    options: {
+      min: 0,
+      max: 500,
+      step: 1,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
+  {
+    enunciado: 'Estatura aproximada (centímetros)',
+    options: {
+      min: 0,
+      max: 250,
+      step: 0.01,
+      maxLength: 2
+    },
+    answer_type: "number",
+    question_type: "number"
+  },
+  {
+    enunciado: '¿Ha sido diagnósticado con algún trastorno de conducta alimentaria en los últimos 2 años?',
+    valoraciones: [
+      'Si',
+      'No'
+    ],
+    answer_type: "text",
+    question_type: "multichoice"
+  },
+  {
+    enunciado: '¿Se encuentra bajo tratamiento psiquiátrico con medicamentos psicotrópicos? (estrella verde en el envase)',
+    valoraciones: [
+      'Si',
+      'No'
     ],
     answer_type: "text",
     question_type: "multichoice"
