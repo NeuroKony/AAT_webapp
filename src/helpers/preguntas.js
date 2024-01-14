@@ -101,6 +101,7 @@ export const preguntasFinal = [
   {
     enunciado: '¿Que tan frecuente usas apps para pedir comida?',
     valoraciones: [
+      'Nunca',
       '1 vez por semana',
       'De 2 a 3 veces por semana',
       'De 4 a 5 veces por semana',
@@ -112,6 +113,7 @@ export const preguntasFinal = [
   {
     enunciado: '¿Que tan frecuente te cocinas?',
     valoraciones: [
+      'Nunca',
       '1 vez por semana',
       'De 2 a 3 veces por semana',
       'De 4 a 5 veces por semana',
