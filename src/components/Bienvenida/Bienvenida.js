@@ -9,7 +9,7 @@ const Bienvenida = () => {
     <div className="Bienvenida">
       <div className="Bienvenida__contenedor_bienvenida">
         <h1>Bienvenido a esta experiencia experimental</h1>
-        <p>Esta aplicación fue hecha para medir conducta alimentaria. Pasar por las etapas de la experiencia te tomará aprox. 10 minutos</p>
+        <p>Esta aplicación fue hecha para medir conducta alimentaria. Pasar por las etapas de la experiencia te tomará aprox. 15 minutos</p>
         <h2>Las etapas son:</h2>
         <ul>
           <li>Consentimiento informado</li>
