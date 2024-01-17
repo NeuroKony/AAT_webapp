@@ -214,10 +214,5 @@ export const preguntasFinal = [
     ],
     answer_type: "text",
     question_type: "multichoice"
-  },
-  {
-    enunciado: 'Por último, necesitamos su información de correo electrónico',
-    answer_type: "text",
-    question_type: "open"
   }
 ]
