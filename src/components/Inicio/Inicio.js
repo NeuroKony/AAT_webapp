@@ -42,7 +42,7 @@ const Inicio = () => {
       <h1 className="Inicio__titulo">Inicio</h1>
       <form className="Inicio__formulario" onSubmit={enviarFormulario}>
         <div className="contenedor_campo">
-          <label className="Inicio__label_destacado">Nombre y apellido</label>
+          <label className="Inicio__label_destacado">Rut sin dígito verificador y con puntos</label>
           <input
             type="text"
             onChange={e => setSujeto(e.target.value)}
