@@ -22,6 +22,7 @@ const AAT = () => {
   
   const [paso, setPaso] = useState(PASO1)
 
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
   const { conPublicidad } = useSelector(state => state.pruebas)
   const dispatch = useDispatch()
   const secuenciaPractica = useMemo(() => crearSecuenciaPractica(conPublicidad).slice(0, window.location.href.indexOf('localhost') > 0 ? 1 : 1000), [conPublicidad])
@@ -52,7 +53,10 @@ const AAT = () => {
                   name="formaDeRespuesta"
                   id="manoIzquierda"
                   value="pulgar mano izquierda"
-                  onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
+                  onChange={e => {
+                    dispatch(guardaFormaDeRespuesta(e.target.value));
+                    setIsOptionSelected(true);
+                  }}
                 />
                 <label htmlFor="manoIzquierda">
                   <img className="AAT__imagen_mano" src={imagenManoIzquierda} alt="imagen_mano" />
@@ -64,7 +68,10 @@ const AAT = () => {
                   name="formaDeRespuesta"
                   id="manoDerecha"
                   value="pulgar mano derecha"
-                  onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
+                  onChange={e => {
+                    dispatch(guardaFormaDeRespuesta(e.target.value));
+                    setIsOptionSelected(true);
+                  }}
                 />
                 <label htmlFor="manoDerecha">
                   <img className="AAT__imagen_mano" src={imagenManoDerecha} alt="imagen_mano" />
@@ -76,7 +83,10 @@ const AAT = () => {
                   name="formaDeRespuesta"
                   id="manoIzquierdaSostenido"
                   value="índice mano izquierda"
-                  onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
+                  onChange={e => {
+                    dispatch(guardaFormaDeRespuesta(e.target.value));
+                    setIsOptionSelected(true);
+                  }}
                 />
                 <label htmlFor="manoIzquierdaSostenido">
                   <img className="AAT__imagen_mano" src={imagenManoIzquierdaSostenido} alt="imagen_mano" />
@@ -88,14 +98,17 @@ const AAT = () => {
                   name="formaDeRespuesta"
                   id="manoDerechaSostenido"
                   value="índice mano derecha"
-                  onChange={e => dispatch(guardaFormaDeRespuesta(e.target.value))}
+                  onChange={e => {
+                    dispatch(guardaFormaDeRespuesta(e.target.value));
+                    setIsOptionSelected(true);
+                  }}
                 />
                 <label htmlFor="manoDerechaSostenido">
                   <img className="AAT__imagen_mano" src={imagenManoDerechaSostenido} alt="imagen_mano" />
                 </label>
               </div>
             </div>
-            <button onClick={() => setPaso(PASO5)}>Continuar</button>
+            <button onClick={() => setPaso(PASO5)} disabled={!isOptionSelected}>Continuar</button>
           </div>
         </div>
       )
