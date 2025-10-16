@@ -9,6 +9,8 @@ client.setApiKey(SENDGRID_API_KEY);
 
 exports.handler = async function (event, context, callback) {
 
+  const { message, content, content2, content3, filename, filename2, filename3 } = JSON.parse(event.body);
+
   let parsedBody;
 
   try {
@@ -36,8 +38,6 @@ exports.handler = async function (event, context, callback) {
       }),
     };
   }
-
-  const { message, content, content2, content3, filename, filename2, filename3 } = JSON.parse(event.body);
 
   const data = {
     to: SENDGRID_TO_EMAIL,
