@@ -46,9 +46,18 @@ exports.handler = async function (event, context, callback) {
     .send(data)
     .then(() => {
       console.log('Email sent')
+      return {
+        statusCode: 200, // Código de estado HTTP
+        body: JSON.stringify({ message: 'Correo enviado con éxito.' }),
+      };
     })
     .catch((error) => {
       console.error(error)
+      // Respuesta en caso de error
+      return {
+        statusCode: err.code,
+        body: JSON.stringify({ msg: err.message }),
+      };
     })
 
   /*try {
