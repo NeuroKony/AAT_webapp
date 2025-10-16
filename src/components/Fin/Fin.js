@@ -12,14 +12,14 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  const enviarDatos = () => {
+  const enviarDatos = async () => {
 
     let index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
     const lastFood = preguntasExtra.slice(index,index+1)
     const extraQuestions = preguntasExtra.slice(0, index).concat(preguntasExtra.slice(index+1))
 
     setError('')
-    axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
+    const response = await axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
     {
       message: `
         <table>
