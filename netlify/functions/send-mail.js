@@ -9,6 +9,8 @@ client.setApiKey(SENDGRID_API_KEY);
 
 exports.handler = async function (event, context, callback) {
 
+  console.log('Cuerpo recibido:', event.body); // Depuración
+
   let parsedBody;
 
   try {
@@ -22,11 +24,28 @@ exports.handler = async function (event, context, callback) {
     console.error('Error al analizar event.body:', error.message);
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: 'El cuerpo de la solicitud no es un JSON válido.' }),
+      body: JSON.stringify({ 
+        error: 'El cuerpo de la solicitud no es un JSON válido.',
+        message: message,
+        content: content,
+        filename: filename,
+        content2: content2,
+        filename2: filename2,
+        content3: content3,
+        filename3: filename3
+      }),
     };
   }
 
   const { message, content, content2, content3, filename, filename2, filename3 } = JSON.parse(event.body);
+
+  console.log(message)
+  console.log(content)
+  console.log(filename)
+  console.log(content2)
+  console.log(filename2)
+  console.log(content3)
+  console.log(filename3)
 
   const data = {
     to: SENDGRID_TO_EMAIL,
