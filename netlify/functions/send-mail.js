@@ -15,8 +15,9 @@ exports.handler = async function (event, context, callback) {
     to: SENDGRID_TO_EMAIL,
     from: SENDGRID_FROM_EMAIL,
     subject: `Proyecto AAT`,
-    html: message,
-    /*attachments: [
+    html: "Clean Message",
+    /*html: message,
+    attachments: [
       {
         content: Buffer.from(content).toString('base64'),
         filename,
