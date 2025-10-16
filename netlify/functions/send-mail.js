@@ -16,7 +16,7 @@ exports.handler = async function (event, context, callback) {
     from: SENDGRID_FROM_EMAIL,
     subject: `Proyecto AAT`,
     html: message,
-    attachments: [
+    /*attachments: [
       {
         content: Buffer.from(content).toString('base64'),
         filename,
@@ -38,28 +38,8 @@ exports.handler = async function (event, context, callback) {
         disposition: 'attachment',
         content_id: 'csv'
       },
-    ],
+    ],*/
   };
-
-  let parsedBody;
-
-  try {
-    // Verificar si event.body está definido y es un JSON válido
-    if (!event.body) {
-      throw new Error('El cuerpo de la solicitud (event.body) está vacío.');
-    }
-    parsedBody = JSON.parse(event.body);
-  } catch (error) {
-    // Manejar errores de análisis
-    console.error('Error al analizar event.body:', error.message);
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ 
-        error: 'El cuerpo de la solicitud no es un JSON válido.',
-        data: JSON.stringify(data)
-      }),
-    };
-  }
 
   client
     .send(data)
