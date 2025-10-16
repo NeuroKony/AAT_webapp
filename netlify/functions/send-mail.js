@@ -5,9 +5,10 @@ const {
   SENDGRID_FROM_EMAIL,
 } = process.env;
 
+client.setApiKey(SENDGRID_API_KEY);
+
 exports.handler = async function (event, context, callback) {
   const { message, content, content2, content3, filename, filename2, filename3 } = JSON.parse(event.body);
-  client.setApiKey(SENDGRID_API_KEY);
 
   const data = {
     to: SENDGRID_TO_EMAIL,
@@ -39,7 +40,16 @@ exports.handler = async function (event, context, callback) {
     ],
   };
 
-  try {
+  client
+    .send(data)
+    .then(() => {
+      console.log('Email sent')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+
+  /*try {
     await client.send(data);
     return {
       statusCode: 200,
@@ -50,5 +60,5 @@ exports.handler = async function (event, context, callback) {
       statusCode: err.code,
       body: JSON.stringify({ msg: err.message }),
     };
-  }
+  }*/
 };
