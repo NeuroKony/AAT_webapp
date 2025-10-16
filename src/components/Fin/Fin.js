@@ -3,7 +3,7 @@ import axios from 'axios'
 import monito from '../../assets/images/monito.svg'
 import Papa from 'papaparse'
 import './Fin.css'
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 
 const Fin = () => {
 
@@ -12,7 +12,7 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  const enviarDatos = useMemo(() => {
+  const enviarDatos = () => {
 
     let index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
     const lastFood = preguntasExtra.slice(index,index+1)
@@ -79,13 +79,15 @@ const Fin = () => {
       .then(() => {
         setEnviados(true)
         setEnviando(false)
+        console.log('Respuesta del servidor:', response.data)
       })
       .catch(() => {
         setEnviando(false)
         setEnviados(false)
+        console.error('Error al enviar los datos:', error)
         setError('Ocurrió un error al enviar los datos')
       })
-    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]);
+    };
 
   return (
     <div className="Fin">
@@ -106,7 +108,7 @@ const Fin = () => {
               disabled={enviando}
               onClick={enviarDatos}
             >
-            {error ? 'Volver a intentarlo' : 'Enviando...' }
+            {enviando ? 'Enviando...' : error ? 'Volver a intentarlo' : 'Enviar'}
             </button>
           </>
       }

@@ -7,69 +7,70 @@ const {
 
 client.setApiKey(SENDGRID_API_KEY);
 
-exports.handler = async function (event, context, callback) {
+exports.handler = async function (event) {
+  try {
+    console.log('Evento recibido:', event);
 
-  //const { message, content, content2, content3, filename, filename2, filename3 } = JSON.parse(event.body);
+    // Validar y analizar el cuerpo de la solicitud
+    let parsedBody = {};
+    if (event.body) {
+      try {
+        parsedBody = JSON.parse(event.body);
+      } catch (error) {
+        console.error('El cuerpo de la solicitud no es un JSON válido:', error.message);
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'El cuerpo de la solicitud no es un JSON válido.' }),
+        };
+      }
+    }
 
-  const data = {
-    to: SENDGRID_TO_EMAIL,
-    from: SENDGRID_FROM_EMAIL,
-    subject: `Proyecto AAT`,
-    html: "Clean Message",
-    /*html: message,
-    attachments: [
-      {
-        content: Buffer.from(content).toString('base64'),
-        filename,
-        type: 'text/csv',
-        disposition: 'attachment',
-        content_id: 'csv'
-      },
-      {
-        content: Buffer.from(content2).toString('base64'),
-        filename: filename2,
-        type: 'text/csv',
-        disposition: 'attachment',
-        content_id: 'csv'
-      },
-      {
-        content: Buffer.from(content3).toString('base64'),
-        filename: filename3,
-        type: 'text/csv',
-        disposition: 'attachment',
-        content_id: 'csv'
-      },
-    ],*/
-  };
+    const { message, content, content2, content3, filename, filename2, filename3 } = parsedBody;
 
-  client
-    .send(data)
-    .then(() => {
-      console.log('Email sent')
-      return {
-        statusCode: 200, // Código de estado HTTP
-        body: JSON.stringify({ message: 'Correo enviado con éxito.' }),
-      };
-    })
-    .catch((error) => {
-      console.error(error)
-      // Respuesta en caso de error
-      return {
-        statusCode: err.code,
-        body: JSON.stringify({ msg: err.message }),
-      };
-    })
+    const data = {
+      to: SENDGRID_TO_EMAIL,
+      from: SENDGRID_FROM_EMAIL,
+      subject: `Proyecto AAT`,
+      html: message || 'Mensaje vacío',
+      attachments: [
+        {
+          content: Buffer.from(content || '').toString('base64'),
+          filename: filename || 'archivo1.csv',
+          type: 'text/csv',
+          disposition: 'attachment',
+        },
+        {
+          content: Buffer.from(content2 || '').toString('base64'),
+          filename: filename2 || 'archivo2.csv',
+          type: 'text/csv',
+          disposition: 'attachment',
+        },
+        {
+          content: Buffer.from(content3 || '').toString('base64'),
+          filename: filename3 || 'archivo3.csv',
+          type: 'text/csv',
+          disposition: 'attachment',
+        },
+      ],
+    };
 
-  /*try {
+    console.log('Enviando correo con los siguientes datos:', data);
+
+    // Enviar el correo usando SendGrid
     await client.send(data);
+
+    // Respuesta exitosa
     return {
       statusCode: 200,
-      body: 'Message sent',
+      body: JSON.stringify({ message: 'Correo enviado con éxito.' }),
     };
   } catch (err) {
+    console.error('Error al enviar el correo:', err.message);
+
+    // Respuesta en caso de error
     return {
-      statusCode: err.code,
-      body: JSON.stringify({ msg: err.message }),
+      statusCode: err.code || 500,
+      body: JSON.stringify({ error: err.message || 'Error interno del servidor.' }),
     };
-  }*/
+  }
 };
