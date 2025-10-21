@@ -108,7 +108,7 @@ const Fin = () => {
               disabled={enviando}
               onClick={enviarDatos}
             >
-            {enviando ? 'Enviando...' : error ? 'Volver a intentarlo' : 'Enviar'}
+            {error ? 'Volver a intentarlo' : 'Enviar'}
             </button>
           </>
       }
