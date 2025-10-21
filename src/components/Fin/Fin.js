@@ -3,7 +3,7 @@ import axios from 'axios'
 import monito from '../../assets/images/monito.svg'
 import Papa from 'papaparse'
 import './Fin.css'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 const Fin = () => {
 
@@ -12,14 +12,14 @@ const Fin = () => {
   const [enviados, setEnviados] = useState(false)
   const [error, setError] = useState()
 
-  const enviarDatos = async () => {
+  const enviarDatos = useMemo(() => {
 
     let index = preguntasExtra.findIndex(p => p.enunciado === "¿Hace cuánto tiempo tuviste tu última comida?")
     const lastFood = preguntasExtra.slice(index,index+1)
     const extraQuestions = preguntasExtra.slice(0, index).concat(preguntasExtra.slice(index+1))
 
     setError('')
-    const response = await axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
+    axios.post('https://aat-project.netlify.app/.netlify/functions/send-mail',
     {
       message: `
         <table>
@@ -79,15 +79,13 @@ const Fin = () => {
       .then(() => {
         setEnviados(true)
         setEnviando(false)
-        console.log('Respuesta del servidor:', response.data)
       })
       .catch(() => {
         setEnviando(false)
         setEnviados(false)
-        console.error('Error al enviar los datos:', error)
         setError('Ocurrió un error al enviar los datos')
       })
-    };
+    }, [circuloAlejar, condicion, cuestionario, formaDeRespuesta, grupo, manoDominante, preguntasExtra, pruebas, sujeto]);
 
   return (
     <div className="Fin">
